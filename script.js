@@ -7,7 +7,7 @@
  * DONE: Complete the showYouWon, showNumberAbove, showNumberBelow
  * DONE: Use the showYouWon... functions within displayResult to display the correct dialog
  * DONE: Save the guess history in a variable called guess
- * TODO: Display the guess history using displayHistory() function
+ * DONE: Display the guess history using displayHistory() function
  * TODO: Use the initGame() function to restart the game
  */
 
@@ -31,6 +31,7 @@ function playGame() {
   let numberGuess = document.getElementById("number-guess").value;
   displayResult(numberGuess);
   saveGuessHistory(numberGuess);
+  displayHistory();
 }
 
 /**
@@ -94,9 +95,17 @@ function saveGuessHistory(guess) {
  * HINT: use while loop and string concatentation to create a list of guesses
  */
 function displayHistory() {
-  let index; // TODO
+  let index = guesses.length - 1; // TODO
   let list = "<ul class='list-group'>";
   // *CODE GOES BELOW HERE *
+  while (index >= 0) {
+    list +=
+      "<li class='list-group-item'>" +
+      "You guessed " +
+      guesses[index] +
+      "</li>";
+    index--;
+  }
   list += "</ul>";
   document.getElementById("history").innerHTML = list;
 }
